@@ -2,14 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: second;
+  src: url("./fonts/avenir-font/AvenirLTStd-Light.otf");
+}
+
+@font-face {
+  font-family: main;
+  src: url("./fonts/optima/OPTIMA.TTF");
+}
+
+@font-face {
+  font-family: third;
+  src: url("./fonts/avenir-font/AvenirLTStd-Heavy.otf");
+}
+
+.main_font {
+  font-family: main;
+}
+
+.second_font {
+  font-family: second;
+}
+
+.third_font {
+  font-family: third;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  /* --foreground: #171717; */
+  --foreground: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }
@@ -17,5 +45,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: second, sans-serif;
 }
