@@ -6,14 +6,14 @@ import Link from "next/link";
 
 export default function Categories() {
   return (
-    <div className="flex flex-col mx-7 my-20">
-      <div className="flex justify-between mb-10">
+    <div className="flex flex-col  my-20">
+      <div className="flex justify-between mb-10 mx-7">
         <span className="text-xl">Product Categories</span>
         <span className="second_font">
           Imecable furniture designes for your home
         </span>
       </div>
-      <div className="flex overflow-x-auto w-[100vw]">
+      <div className="flex overflow-x-auto w-[100vw] px-7">
         {CATEGORIES.map((item) => (
           <div
             key={item.title}

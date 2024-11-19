@@ -9,13 +9,13 @@ import AboutUs from "@/components/about-us-comp/about-us";
 export default function Home() {
   return (
     <div className="relative w-full h-full flex flex-col mt-]">
-      <div className="relative w-full h-[70vh] overflow-hidden">
+      <div className="relative w-full h-[70vh] ">
         {/* Main Image */}
         <Image src={main} alt="Next.js logo" priority fill quality={100} />
 
         {/* Half-Oval Gradient */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute bottom-[-6rem] w-full h-[30vh] bg-black rounded-t-[30%]"></div>
+        <div className="absolute inset-0 pointer--none ">
+          <div className=" absolute bottom-[-10px] w-full h-[20vh] bg-black rounded-t-[35%]"></div>
         </div>
 
         {/* Text Content */}
