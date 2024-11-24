@@ -48,7 +48,7 @@ export default function MainHeader() {
   return (
     <div
       className={`z-[100] fixed top-0 w-full flex flex-col text-white transition-colors duration-300 ${
-        isScrolled ? "bg-black" : "bg-transparent"
+        isScrolled || openMenu ? "bg-black" : "bg-transparent"
       }`}
     >
       <div className="flex justify-between items-center p-5">

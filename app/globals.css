@@ -8,6 +8,11 @@
 }
 
 @font-face {
+  font-family: forth;
+  src: url("./fonts/Aviano\ Sans\ Light.ttf");
+}
+
+@font-face {
   font-family: main;
   src: url("./fonts/optima/OPTIMA.TTF");
 }
@@ -29,6 +34,10 @@
   font-family: third;
 }
 
+.f_font {
+  font-weight: 100;
+  font-family: forth;
+}
 :root {
   --background: #ffffff;
   /* --foreground: #171717; */
