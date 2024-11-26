@@ -2,14 +2,12 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { DATA, MENU } from "@/constants";
-import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/products/product-card";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
   const [activeMenu, setActiveMenu] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const searchParams = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState({
     images: [],
@@ -43,11 +41,12 @@ export default function ProductsPage() {
   }, []);
 
   useEffect(() => {
-    const name = searchParams.get("title");
-    if (name) {
-      handleFilterProducts(name);
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get("title");
+    if (title) {
+      handleFilterProducts(title); // Filter products based on query
     }
-  }, [searchParams, products]); // Wait for products to load
+  }, [window.location.search, products]);
 
   const handleFilterProducts = (name) => {
     let filtered;
