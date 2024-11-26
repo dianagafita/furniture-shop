@@ -14,9 +14,9 @@ export default function Home() {
         <Image src={main} alt="Next.js logo" priority fill quality={100} />
 
         {/* Half-Oval Gradient */}
-        <div className="absolute inset-0 pointer--none ">
+        {/* <div className="absolute inset-0 pointer--none ">
           <div className=" absolute bottom-[-10px] w-full h-[20vh] bg-black rounded-t-[35%]"></div>
-        </div>
+        </div> */}
 
         {/* Text Content */}
         <div className="inset-0 absolute flex flex-col justify-between m-7">

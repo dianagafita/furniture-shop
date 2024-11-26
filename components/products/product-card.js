@@ -5,18 +5,24 @@ export default function ProductCard({ product, handleSoldItem }) {
   return (
     <>
       <Link
-        href={`/products/${product._id}`}
+        href={`/products/${product._id}/product-details`}
         className="relative h-auto my-10 group text-white"
       >
         <div className="relative w-[300px] h-[300px] overflow-hidden">
           <Image
             className="absolute  top-0 left-0 transition-opacity duration-300 group-hover:opacity-0"
-            src={product.image}
+            src={product.images[0]}
             alt=""
             layout="fill"
             objectFit="contain"
           />
-
+          <Image
+            className="absolute  top-0 left-0 transition-opacity duration-300 group-hover:opacity-1"
+            src={product.images[1]}
+            alt=""
+            layout="fill"
+            objectFit="contain"
+          />
           {product.sold && (
             <div className="absolute border tracking-widest bg-[rgba(0,0,0,0.6)] inset-0 w-full h-full flex items-center justify-center">
               <span className="text-white  text-4xl  transform rotate-45">

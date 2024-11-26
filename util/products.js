@@ -1,9 +1,7 @@
-import Image from "next/image";
-import img from "@/app/1.png";
-import { DATA } from "@/constants";
+"use client";
 import { useEffect, useState } from "react";
 
-export default function RecommendedProducts() {
+export const getAllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -26,23 +24,5 @@ export default function RecommendedProducts() {
 
     fetchProducts();
   }, []);
-
-  return (
-    <div className="my-20  flex w-full overflow-x-auto">
-      {products.map((item) => {
-        if (!item.sold)
-          return (
-            <div key={item._id} className="w-full h-[300px] pr-5 ">
-              <div className="relative h-2/3 w-[200px]">
-                <Image fill src={item.images[0]} alt={item._id} />
-              </div>
-              <div className="h-1/3 flex flex-col">
-                <span>{item.name}</span>
-                <span>{item.price} lei</span>
-              </div>
-            </div>
-          );
-      })}
-    </div>
-  );
-}
+  return products;
+};

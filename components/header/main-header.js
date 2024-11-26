@@ -47,7 +47,7 @@ export default function MainHeader() {
 
   return (
     <div
-      className={`z-[100] fixed top-0 w-full flex flex-col text-white transition-colors duration-300 ${
+      className={`z-[100] fixed top-0 w-full flex flex-col text-white transition-colors duration-100 ${
         isScrolled || openMenu ? "bg-black" : "bg-transparent"
       }`}
     >

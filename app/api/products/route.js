@@ -29,6 +29,9 @@ export async function POST(req) {
     // Parse FormData
     const formData = await req.formData();
     const name = formData.get("name");
+    const type = formData.get("type");
+    const description = formData.get("type");
+    const subtitle = formData.get("type");
     const price = formData.get("price");
     const images = formData.getAll("images"); // Use getAll for multiple files
 
@@ -59,7 +62,9 @@ export async function POST(req) {
       name,
       price: parseFloat(price),
       sold: false,
-      type: "tables",
+      type: type,
+      subtitle,
+      description,
       images: imageUrls, // Store an array of image URLs
       createdAt: new Date(),
     };
