@@ -39,9 +39,16 @@
   font-family: forth;
 }
 :root {
-  --background: #ffffff;
+  --background: #000000;
   /* --foreground: #171717; */
-  --foreground: #000000;
+  --foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #000000;
+    --foreground: #ededed;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
