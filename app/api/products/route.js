@@ -6,7 +6,7 @@ import { ObjectId } from "mongodb"; // Import ObjectId
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db("furniture-store");
+    const db = client.db("furniture-shop");
 
     // Fetch all products from the "products" collection
     const products = await db.collection("products").find({}).toArray();
@@ -55,7 +55,7 @@ export async function POST(req) {
     console.log("Image URLs:", imageUrls);
 
     const client = await clientPromise;
-    const db = client.db("furniture-store");
+    const db = client.db("furniture-shop");
 
     // Insert the product into MongoDB
     const newProduct = {
@@ -93,7 +93,7 @@ export async function PUT(req) {
     }
 
     const client = await clientPromise;
-    const db = client.db("furniture-store");
+    const db = client.db("furniture-shop");
 
     const result = await db.collection("products").findOneAndUpdate(
       { _id: new ObjectId(id) }, // Find the product by ObjectId

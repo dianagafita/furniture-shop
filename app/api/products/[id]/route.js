@@ -11,7 +11,7 @@ export async function GET(req, context) {
     console.log("Product ID:", id);
 
     const client = await clientPromise;
-    const db = client.db("furniture-store");
+    const db = client.db("furniture-shop");
 
     const product = await db
       .collection("products")
