@@ -2,6 +2,8 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 export function ImageGallery({ images, type }) {
   const [active, setActive] = useState(images[0]);
@@ -9,6 +11,7 @@ export function ImageGallery({ images, type }) {
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
   const modalRef = useRef(null);
+  const router = useRouter(); // Initialize the router
 
   const handleImageClick = (index) => {
     setModalImageIndex(index);
@@ -21,6 +24,11 @@ export function ImageGallery({ images, type }) {
     }
   };
 
+  const handleRefresh = () => {
+    // This will refresh the page and navigate to the unintercepted version
+    router.push(router.asPath); // Navigate to the same path to refresh
+    window.location.reload(); // This will reload the page
+  };
   return (
     <>
       <div className={`grid grid-cols-1 gap-4 w-full`}>
@@ -39,7 +47,7 @@ export function ImageGallery({ images, type }) {
           />
         </div>
 
-        <div className="w-full flex overflow-x-auto mt-4 justify-center">
+        <div className="w-full flex overflow-x-auto mt-4 justify-center ">
           {images.map((imgLink, index) => (
             <div
               key={index}
@@ -56,8 +64,16 @@ export function ImageGallery({ images, type }) {
             </div>
           ))}
         </div>
-      </div>
-
+      </div>{" "}
+      {type === "modal" && (
+        <button
+          onClick={handleRefresh}
+          className="flex items-center justify-end text-right  w-full text-white hover:text-[rgb(255,255,255,0.8)]"
+        >
+          Show Details
+          <ArrowRight className="ml-2" strokeWidth={0.8} size={20} />
+        </button>
+      )}
       {/* Modal for Larger Image View */}
       {isModalOpen && type !== "modal" && (
         <div
