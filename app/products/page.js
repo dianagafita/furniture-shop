@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { DATA, MENU } from "@/constants";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/products/product-card";
@@ -144,7 +144,7 @@ export default function ProductsPage() {
 
   console.log(products);
   return (
-    <>
+    <Suspense fallback={<p>Loading...</p>}>
       {isModalOpen && (
         <div
           className="absolute w-full h-full z-[200] bg-[rgba(0,0,0,0.7)] flex justify-center  modal-background"
@@ -257,6 +257,6 @@ export default function ProductsPage() {
           )}
         </div>
       </div>
-    </>
+    </Suspense>
   );
 }
