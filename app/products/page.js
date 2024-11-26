@@ -50,9 +50,13 @@ export default function ProductsPage() {
   }, [searchParams, products]); // Wait for products to load
 
   const handleFilterProducts = (name) => {
-    const filtered = products.filter(
-      (item) => item.type?.toLowerCase() === name.toLowerCase()
-    );
+    let filtered;
+    if (name === "All Products") {
+      filtered = products;
+    } else
+      filtered = products.filter(
+        (item) => item.type?.toLowerCase() === name.toLowerCase()
+      );
     setFilteredProducts(filtered);
     setActiveMenu(name);
   };
