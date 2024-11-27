@@ -18,6 +18,7 @@ export default function ProductsPage() {
     price: "",
   });
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdminPage, setIsAdminPage] = useState(false);
 
   const handleAdminAccess = () => {
     const token = prompt("Enter admin token:");
@@ -53,10 +54,18 @@ export default function ProductsPage() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const title = urlParams.get("title");
+    const admin = urlParams.get("admin");
+    console.log(admin);
+    console.log("AAAA");
+
     if (title) {
       handleFilterProducts(title); // Filter products based on query
     }
-  }, [window.location.search, products]);
+    if (admin === "access") {
+      setIsAdminPage(true);
+      console.log("ADMIN ACCEESS");
+    }
+  }, [products]);
 
   const handleFilterProducts = (name) => {
     let filtered;
@@ -251,7 +260,7 @@ export default function ProductsPage() {
         {/* <button onClick={handleOpenModal} className="text-white my-10">
           + Add Product
         </button> */}
-        {!isAdmin && (
+        {!isAdmin && isAdminPage && (
           <button onClick={handleAdminAccess} className="text-white my-10">
             Admin Login
           </button>
