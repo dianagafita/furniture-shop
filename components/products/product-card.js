@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProductCard({ product, handleSoldItem }) {
+export default function ProductCard({ product, handleSoldItem, isAdmin }) {
   return (
     <>
       <Link
@@ -36,7 +36,7 @@ export default function ProductCard({ product, handleSoldItem }) {
         </span>
         <p className="block text-left text-lg font-bold">{product.price}</p>
       </Link>{" "}
-      {!product.sold && (
+      {!product.sold && isAdmin && (
         <button
           type="button"
           className=" text-white font-bold text-2xl my-5 text-red-700"

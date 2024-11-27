@@ -1,17 +1,20 @@
-"use client";
+import clientPromise from "@/lib/mongodb";
 
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+export async function getSearchedItem(searchTerm) {
+  client = await clientPromise;
+  const db = client.db("furniture-shop");
 
-export default function SearchHandler({ onFilter }) {
-  const searchParams = useSearchParams();
+  const searchRegex = new RegExp(searchTerm, "i");
 
-  useEffect(() => {
-    const title = searchParams.get("title");
-    if (title) {
-      onFilter(title);
-    }
-  }, [searchParams, onFilter]);
+  // Find the product where name, description, or subtitle matches the searchTerm
+  const products = await db.collection("products").findOne({
+    $or: [
+      { name: { $regex: searchRegex } },
+      { description: { $regex: searchRegex } },
+      { subtitle: { $regex: searchRegex } },
+    ],
+  });
 
-  return null;
+  console.log(products);
+  return products;
 }

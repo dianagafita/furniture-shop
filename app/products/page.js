@@ -17,6 +17,16 @@ export default function ProductsPage() {
     description: "",
     price: "",
   });
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const handleAdminAccess = () => {
+    const token = prompt("Enter admin token:");
+    if (token === process.env.NEXT_PUBLIC_ADMIN_TOKEN) {
+      setIsAdmin(true);
+    } else {
+      alert("Invalid token!");
+    }
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -238,9 +248,15 @@ export default function ProductsPage() {
           ))}
         </ul>
 
-        <button onClick={handleOpenModal} className="text-white my-10">
+        {/* <button onClick={handleOpenModal} className="text-white my-10">
           + Add Product
-        </button>
+        </button> */}
+        {!isAdmin && (
+          <button onClick={handleAdminAccess} className="text-white my-10">
+            Admin Login
+          </button>
+        )}
+        {isAdmin && <button className="text-white my-10">+ Add Product</button>}
         <div className="flex flex-wrap items-center justify-center gap-10 my-10 w-full px-5">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product, index) => (
@@ -248,6 +264,7 @@ export default function ProductsPage() {
                 <ProductCard
                   handleSoldItem={handleSoldItem}
                   product={product}
+                  isAdmin={isAdmin}
                 />
               </li>
             ))
