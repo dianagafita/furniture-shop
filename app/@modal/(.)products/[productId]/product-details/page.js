@@ -69,7 +69,7 @@ export default function InterceptedProductDetailPage({ params }) {
           }}
           className="absolute z-[200]  inset-0 bg-[rgba(0,0,0,0.8)] text-white h-full overflow-hidden"
         >
-          <div onClick={(e) => e.stopPropagation()} className="px-5 mt-[30vh]">
+          <div onClick={(e) => e.stopPropagation()} className="px-5 mt-[25vh]">
             <ImageGallery type="modal" images={product.images} />
           </div>
         </div>

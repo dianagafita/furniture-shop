@@ -68,7 +68,7 @@ export function ImageGallery({ images, type }) {
       {type === "modal" && (
         <button
           onClick={handleRefresh}
-          className="flex items-center justify-end text-right  w-full text-white hover:text-[rgb(255,255,255,0.8)]"
+          className="mt-20 px-10 flex items-center justify-end text-right  w-full text-white hover:text-[rgb(255,255,255,0.8)]"
         >
           Show Details
           <ArrowRight className="ml-2" strokeWidth={0.8} size={20} />
